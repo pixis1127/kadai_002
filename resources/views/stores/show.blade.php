@@ -28,14 +28,25 @@
                  <input type="hidden" name="name" value="{{$store->name}}">
                  <input type="hidden" name="price" value="{{$store->price}}">
                  <div class="row">
-                     <div class="col-5">
-                         <a href="/stores/{{ $store->id }}/favorite" class="btn kadai_002-favorite-button text-dark w-100">
+                     <div class="col-5">                        
+                        @if($store->isFavoritedBy(Auth::user()))
+                         <a href="{{ route('stores.favorite', $store) }}" class="btn kadai_002-favorite-button text-favorite w-100">
+                             <i class="fa fa-heart"></i>
+                             お気に入り解除
+                         </a>
+                         @else
+                         <a href="{{ route('stores.favorite', $store) }}" class="btn kadai_002-favorite-button text-favorite w-100">
                              <i class="fa fa-heart"></i>
                              お気に入り
                          </a>
+                         @endif
+
                      </div>
                  </div>
              </form>
+                 <form id="favorites-store-form" action="{{ route('favorites.store', $store->id) }}" method="POST" class="d-none">
+                     @csrf
+                 </form>
              @endauth
          </div>
  
@@ -45,7 +56,32 @@
          </div>
  
          <div class="offset-1 col-10">
-             <!-- レビューを実装する箇所になります -->
+         <div class="row">
+                 @foreach($reviews as $review)
+                 <div class="offset-md-5 col-md-5">
+                     <p class="h3">{{$review->content}}</p>
+                     <label>{{$review->created_at}} {{$review->user->name}}</label>
+                 </div>
+                 @endforeach
+             </div><br />
+ 
+            <!-- ログインしているかではなく有料会員かどうかで分けたい -->
+             @auth
+             <div class="row">
+                 <div class="offset-md-5 col-md-5">
+                     <form method="POST" action="{{ route('reviews.store') }}">
+                         @csrf
+                         <h4>レビュー内容</h4>
+                         @error('content')
+                             <strong>レビュー内容を入力してください</strong>
+                         @enderror
+                         <textarea name="content" class="form-control m-2"></textarea>
+                         <input type="hidden" name="store_id" value="{{$store->id}}">
+                         <button type="submit" class="btn kadai_002-submit-button ml-2">レビューを追加</button>
+                     </form>
+                 </div>
+             </div>
+             @endauth
          </div>
      </div>
  </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -12,11 +14,19 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $stores = Store::all();
- 
-        return view('stores.index', compact('stores'));
+        if ($request->category !== null) {
+            $stores = Store::where('category_id', $request->category)->sortable()->paginate(16);
+            $total_count = Store::where('category_id', $request->category)->count();
+            $category = Category::find($request->category);
+        } else {
+            $stores = Store::sortable()->paginate(16);
+            $total_count = "";
+            $category = null;    
+        }
+        $categories = Category::all();
+        return view('stores.index', compact('stores', 'category', 'categories','total_count'));
     }
 
     /**
@@ -48,7 +58,9 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        return view('stores.show', compact('store'));
+        $reviews = $store->reviews()->get();
+  
+        return view('stores.show', compact('store', 'reviews'));
     }
 
     /**
@@ -83,5 +95,13 @@ class StoreController extends Controller
     public function destroy(Store $store)
     {
         //
+    }
+
+    // 有料会員ならお気に入り機能が使えるようにしたい
+    public function favorite(Store $store)
+    {
+        Auth::user()->togglefavorite($store);
+
+        return back();
     }
 }

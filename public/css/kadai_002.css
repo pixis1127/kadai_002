@@ -146,3 +146,34 @@
     letter-spacing: normal;
     color: #e28800;
 }
+
+.kadai_002-header-container {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.kadai_002-header-search-input {
+  border: solid 1px #e5e5e5;
+}
+
+.kadai_002-header-search-button {
+  background-color: #e28800;
+}
+
+.kadai_002-header-search-icon {
+  color: #ffffff;
+}
+
+.kadai_002-header-fav-icon {
+  color: #191919;
+}
+
+.kadai_002-favorite-button {
+  border-radius: 2px;
+  border: solid 1px #e28800;
+  background-color: #ffffff;
+}
+
+.text-favorite {
+  color: #e28800;
+}
