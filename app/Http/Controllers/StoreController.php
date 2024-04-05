@@ -16,17 +16,20 @@ class StoreController extends Controller
      */
     public function index(Request $request)
     {
+        $storets = Store::paginate(15);
         if ($request->category !== null) {
-            $stores = Store::where('category_id', $request->category)->sortable()->paginate(16);
+            $stores = Store::where('category_id', $request->category)->paginate(15);
             $total_count = Store::where('category_id', $request->category)->count();
             $category = Category::find($request->category);
         } else {
-            $stores = Store::sortable()->paginate(16);
+            $stores = Store::paginate(15);
             $total_count = "";
-            $category = null;    
+            $category = null;
         }
         $categories = Category::all();
-        return view('stores.index', compact('stores', 'category', 'categories','total_count'));
+
+        return view('stores.index', compact('stores', 'category', 'categories', 'total_count'));
+
     }
 
     /**
