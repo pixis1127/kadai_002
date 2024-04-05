@@ -16,14 +16,14 @@ use App\Http\Controllers\ReviewController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/stores');
 });
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
 
-Route::resource('stores', StoreController::class)->middleware(['auth', 'verified']);
+Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -44,7 +44,7 @@
                      </div>
                  </div>
              </form>
-                 <form id="favorites-store-form" action="{{ route('favorites.store', $store->id) }}" method="POST" class="d-none">
+                 <form id="favorites-store-form" action="{{ route('stores.favorite', $store->id) }}" method="POST" class="d-none">
                      @csrf
                  </form>
              @endauth
