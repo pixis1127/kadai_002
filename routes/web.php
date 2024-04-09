@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,11 @@ Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->nam
 
 Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('users/mypage', 'mypage')->name('mypage');
+    Route::get('users/mypage/edit', 'edit')->name('mypage.edit');
+    Route::put('users/mypage', 'update')->name('mypage.update');
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

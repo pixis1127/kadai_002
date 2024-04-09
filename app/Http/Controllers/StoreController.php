@@ -16,19 +16,24 @@ class StoreController extends Controller
      */
     public function index(Request $request)
     {
-        $storets = Store::paginate(15);
+        $keyword = $request->keyword;
+
         if ($request->category !== null) {
-            $stores = Store::where('category_id', $request->category)->paginate(15);
+            $stores = Store::where('category_id', $request->category)->sortable()->paginate(2);
             $total_count = Store::where('category_id', $request->category)->count();
             $category = Category::find($request->category);
+        } elseif ($keyword !== null) {
+            $stores = Store::where('name', 'like', "%{$keyword}%")->paginate(2);
+            $total_count = $stores->total();
+            $category = null;
         } else {
-            $stores = Store::paginate(15);
+            $stores = Store::sortable()->paginate(2);
             $total_count = "";
             $category = null;
         }
         $categories = Category::all();
 
-        return view('stores.index', compact('stores', 'category', 'categories', 'total_count'));
+        return view('stores.index', compact('stores', 'category', 'categories', 'total_count', 'keyword'));
 
     }
 
