@@ -12,6 +12,12 @@
                  <h1 class="">
                      {{$store->name}}
                  </h1>
+                 @if ($store->reviews()->exists())
+                     <p>
+                         <span class="kadai_002-star-rating" data-rate="{{ round($store->reviews->avg('score') * 2) / 2 }}"></span>
+                         {{ round($store->reviews->avg('score'), 1) }}
+                     </p>
+                 @endif
                  <p class="">
                      {{$store->description}}
                  </p>
@@ -53,12 +59,19 @@
          <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">カスタマーレビュー</h3>
+             @if ($store->reviews()->exists())
+                 <p>
+                     <span class="kadai_002-star-rating" data-rate="{{ round($store->reviews->avg('score') * 2) / 2 }}"></span>
+                     {{ round($store->reviews->avg('score'), 1) }}
+                 </p>
+             @endif
          </div>
  
          <div class="offset-1 col-10">
          <div class="row">
                  @foreach($reviews as $review)
                  <div class="offset-md-5 col-md-5">
+                 <h3 class="review-score-color">{{ str_repeat('★', $review->score) }}</h3>
                      <p class="h3">{{$review->content}}</p>
                      <label>{{$review->created_at}} {{$review->user->name}}</label>
                  </div>
@@ -71,6 +84,14 @@
                  <div class="offset-md-5 col-md-5">
                      <form method="POST" action="{{ route('reviews.store') }}">
                          @csrf
+                         <h4>評価</h4>
+                             <select name="score" class="form-control m-2 review-score-color">
+                                 <option value="5" class="review-score-color">★★★★★</option>
+                                 <option value="4" class="review-score-color">★★★★</option>
+                                 <option value="3" class="review-score-color">★★★</option>
+                                 <option value="2" class="review-score-color">★★</option>
+                                 <option value="1" class="review-score-color">★</option>
+                             </select>
                          <h4>レビュー内容</h4>
                          @error('content')
                              <strong>レビュー内容を入力してください</strong>

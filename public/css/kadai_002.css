@@ -178,10 +178,17 @@
   color: #e28800;
 }
 
+.review-score-color {
+  color: red;
+}
+
+.review-score-color:focus {
+  color: red;
+}
+
 .kadai_002-sidebar-category-label {
   width: 156px;
   height: 20px;
-  font-family: YuGo;
   font-size: 13px;
   font-weight: 500;
   font-stretch: normal;
@@ -189,4 +196,71 @@
   line-height: normal;
   letter-spacing: normal;
   color: #191919;
+}
+
+.kadai_002-star-rating {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  color: #cccccc;
+  white-space: nowrap;
+}
+
+.kadai_002-star-rating::before,
+.kadai_002-star-rating::after {
+  content: "★★★★★";
+}
+
+.kadai_002-star-rating::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: red;
+  white-space: nowrap;
+}
+
+.kadai_002-star-rating[data-rate="5"]::after {
+  width: 100%;
+}
+
+.kadai_002-star-rating[data-rate="4.5"]::after {
+  width: 90%;
+}
+
+.kadai_002-star-rating[data-rate="4"]::after {
+  width: 80%;
+}
+
+.kadai_002-star-rating[data-rate="3.5"]::after {
+  width: 70%;
+}
+
+.kadai_002-star-rating[data-rate="3"]::after {
+  width: 60%;
+}
+
+.kadai_002-star-rating[data-rate="2.5"]::after {
+  width: 50%;
+}
+
+.kadai_002-star-rating[data-rate="2"]::after {
+  width: 40%;
+}
+
+.kadai_002-star-rating[data-rate="1.5"]::after {
+  width: 30%;
+}
+
+.kadai_002-star-rating[data-rate="1"]::after {
+  width: 20%;
+}
+
+.kadai_002-star-rating[data-rate="0.5"]::after {
+  width: 10%;
+}
+
+.kadai_002-star-rating[data-rate="0"]::after {
+  width: 0%;
 }

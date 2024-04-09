@@ -89,7 +89,7 @@
                  </div>
  
                  <hr>
-                 <button type="submit" class="btn kadai_002-button mt-3 w-25">
+                 <button type="submit" class="btn kadai_002-submit-button mt-3 w-25">
                      保存
                  </button>
              </form>

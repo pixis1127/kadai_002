@@ -19,7 +19,7 @@ class StoreFactory extends Factory
         return [
             'id' => fake()->unique()->randomNumber(2, true),
             'name' => fake()->company(),
-            'discription' => fake()->Text(30),
+            'description' => fake()->Text(30),
             'price' => fake()->numberBetween(900, 2500),
             'category_id' => fake()->randomNumber(1, 7)  
         ];
