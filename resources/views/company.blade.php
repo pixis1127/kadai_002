@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>NAGOYAMESHI</title>
+    <a href="http://localhost/kadai_002/public/stores">戻る</a>
+    <style>
+    .company{
+      width: 500px;
+      margin: 0 auto;
+    }
+    </style>
+    <link rel="stylesheet" href="kadai_002.css">
 </head>
 <body>
+    <div class="company">
     <h1>会社情報</h1>
-    <table>
+    <table class="company-table">
         <tr>
             <th>会社名</th>
             <td>NAGOYAMESHI株式会社</td>
@@ -33,5 +43,6 @@
             <td>飲食店の検索・予約サービス</td>
         </tr>
     </table>
+    </div>
 </body>
 </html>

@@ -16,7 +16,7 @@
                  <input type="hidden" name="_method" value="PUT">
                  <div class="form-group">
                      <div class="d-flex justify-content-between">
-                         <label for="name" class="text-md-left samuraimart-edit-user-info-label">氏名</label>
+                         <label for="name" class="text-md-left kadai_002-edit-user-info-label">氏名</label>
                      </div>
                      <div class="collapse show editUserName">
                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus placeholder="侍 太郎">
@@ -31,7 +31,7 @@
  
                  <div class="form-group">
                      <div class="d-flex justify-content-between">
-                         <label for="email" class="text-md-left samuraimart-edit-user-info-label">メールアドレス</label>
+                         <label for="email" class="text-md-left kadai_002-edit-user-info-label">メールアドレス</label>
                      </div>
                      <div class="collapse show editUserMail">
                          <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" autofocus placeholder="samurai@samurai.com">
@@ -46,7 +46,7 @@
  
                  <div class="form-group">
                      <div class="d-flex justify-content-between">
-                         <label for="postal_code" class="text-md-left samuraimart-edit-user-info-label">郵便番号</label>
+                         <label for="postal_code" class="text-md-left kadai_002-edit-user-info-label">郵便番号</label>
                      </div>
                      <div class="collapse show editUserPhone">
                          <input id="postal_code" type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code" value="{{ $user->postal_code }}" required autocomplete="postal_code" autofocus placeholder="XXX-XXXX">
@@ -61,7 +61,7 @@
  
                  <div class="form-group">
                      <div class="d-flex justify-content-between">
-                         <label for="address" class="text-md-left samuraimart-edit-user-info-label">住所</label>
+                         <label for="address" class="text-md-left kadai_002-edit-user-info-label">住所</label>
                      </div>
                      <div class="collapse show editUserPhone">
                          <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" required autocomplete="address" autofocus placeholder="東京都渋谷区道玄坂X-X-X">
@@ -76,7 +76,7 @@
  
                  <div class="form-group">
                      <div class="d-flex justify-content-between">
-                         <label for="phone" class="text-md-left samuraimart-edit-user-info-label">電話番号</label>
+                         <label for="phone" class="text-md-left kadai_002-edit-user-info-label">電話番号</label>
                      </div>
                      <div class="collapse show editUserPhone">
                          <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}" required autocomplete="phone" autofocus placeholder="XXX-XXXX-XXXX">

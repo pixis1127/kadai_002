@@ -91,6 +91,33 @@
    color: #191919;
  }
 
+ /* .company-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 700px;
+}
+.company-table th, .company-table td {
+  padding: 1em;
+}
+.company-table th {
+  color: #4d9bc1;
+  font-weight: bold;
+  text-align: left;
+  width: 20%;
+  min-width: 4em;
+  position: relative;
+}
+.company-table th::after {
+  content: '';
+  background-color: #c1c7c6;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+} */
+
 .kadai_002-login-input {
     border-radius: 2px;
     border: solid 1px #b2b2b2;
@@ -264,3 +291,4 @@
 .kadai_002-star-rating[data-rate="0"]::after {
   width: 0%;
 }
+

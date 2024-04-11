@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +21,14 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return redirect('/stores');
 });
-Route::get('/company', function () {
-    return view('/company');
-});
+
+Route::get('/company', [CompanyController::class, 'index'])->name('company');
 
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
+
+Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);

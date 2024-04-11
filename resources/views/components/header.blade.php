@@ -52,6 +52,10 @@
            </a>
          </li>
          @endguest
+         <li class="nav-item mr-5">
+          <a class="nav-link" href="{{ route('company') }}">
+        </i><label>会社情報</label>
+          </a>
            </a>
          </li>
        </ul>

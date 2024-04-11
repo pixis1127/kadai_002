@@ -67,8 +67,9 @@ class StoreController extends Controller
     public function show(Store $store)
     {
         $reviews = $store->reviews()->get();
+        $reservations= $store->reservations()->get();
   
-        return view('stores.show', compact('store', 'reviews'));
+        return view('stores.show', compact('store', 'reviews', 'reservations'));
     }
 
     /**

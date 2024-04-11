@@ -26,6 +26,7 @@
                      ￥{{$store->price}}(税込)
                  </p>
                  <hr>
+                 <!-- 定休日、営業時間追記する -->
              </div>
              @auth
              <form method="POST" class="m-3 align-items-end">
@@ -46,7 +47,6 @@
                              お気に入り
                          </a>
                          @endif
-
                      </div>
                  </div>
              </form>
@@ -55,22 +55,51 @@
                  </form>
              @endauth
          </div>
- 
+         @auth
+         <div class="offset-1 col-11">
+             <hr class="w-100">
+             <h3 class="float-left">予約</h3>
+             <div class="w-100">
+                 <div class="offset-1 col-11">
+                     <form method="POST" action="{{ route('reservations.store') }}">
+                         @csrf
+                         <h4>予約日</h4>
+                         <text name="reservation_day" class="form-control m-2"></text>
+                         <h4>時間</h4>
+                         <select name="reservation_time" class="form-control m-2">
+                                 <option value="10:00"></option>
+                                 <option value="11:00"></option>
+                                 <option value="12:00"></option>
+                                 <option value="13:00"></option>
+                                 <option value="14:00"></option>
+                                 <option value="15:00"></option>
+                             </select>
+                         <h4>人数</h4>
+                         <select name="people" class="form-control m-2">
+                                 <option value="1人"></option>
+                                 <option value="2人"></option>
+                                 <option value="3人"></option>
+                                 <option value="4人"></option>
+                                 <option value="5人"></option>
+                                 <option value="6人"></option>
+                                 <option value="7人"></option>
+                                 <option value="8人"></option>
+                             </select>
+                         <input type="hidden" name="store_id" value="{{$store->id}}">
+                         <button type="submit" class="btn kadai_002-submit-button ml-2">予約する</button>
+                     </form>
+                 </div>
+             </div>
+             @endauth
+         </div>
          <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">カスタマーレビュー</h3>
-             @if ($store->reviews()->exists())
-                 <p>
-                     <span class="kadai_002-star-rating" data-rate="{{ round($store->reviews->avg('score') * 2) / 2 }}"></span>
-                     {{ round($store->reviews->avg('score'), 1) }}
-                 </p>
-             @endif
          </div>
- 
          <div class="offset-1 col-10">
-         <div class="row">
+         <div class="w-100">
                  @foreach($reviews as $review)
-                 <div class="offset-md-5 col-md-5">
+                 <div class="float-left">
                  <h3 class="review-score-color">{{ str_repeat('★', $review->score) }}</h3>
                      <p class="h3">{{$review->content}}</p>
                      <label>{{$review->created_at}} {{$review->user->name}}</label>
@@ -78,13 +107,12 @@
                  @endforeach
              </div><br />
  
-            <!-- ログインしているかではなく有料会員かどうかで分けたい -->
              @auth
-             <div class="row">
-                 <div class="offset-md-5 col-md-5">
+             <div class="w-100">
+                 <div class="offset-1 col-11">
                      <form method="POST" action="{{ route('reviews.store') }}">
                          @csrf
-                         <h4>評価</h4>
+                         <h4 class="float-left">評価</h4>
                              <select name="score" class="form-control m-2 review-score-color">
                                  <option value="5" class="review-score-color">★★★★★</option>
                                  <option value="4" class="review-score-color">★★★★</option>
