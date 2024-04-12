@@ -6,6 +6,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
 });
 
+Route::get('subscription', [StripeController::class, 'subscription'])->name('subscription');
+Route::post('subscription', [StripeController::class, 'afterpay'])->name('stripe.afterpay');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

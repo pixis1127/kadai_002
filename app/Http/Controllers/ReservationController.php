@@ -43,8 +43,8 @@ class ReservationController extends Controller
         ]);
 
         $reservation = new Reservation();
-        $reservation->reservation_day = $request->input('reservatio_nday');
-        $reservation->reservation_time = $request->input('reservatio_time');
+        $reservation->reservation_day = $request->input('reservation_day');
+        $reservation->reservation_time = $request->input('reservation_time');
         $reservation->people = $request->input('people');
         $reservation->store_id = $request->input('store_id');
         $reservation->user_id = Auth::user()->id;

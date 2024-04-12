@@ -18,10 +18,14 @@ class StoreFactory extends Factory
     {
         return [
             'id' => fake()->unique()->randomNumber(2, true),
-            'name' => fake()->company(),
-            'description' => fake()->Text(30),
+            'name' => fake()->words(),
+            'description' => fake()->realText(30),
             'price' => fake()->numberBetween(900, 2500),
-            'category_id' => fake()->randomNumber(1, 7)  
+            'category_id' => fake()->randomNumber(1, 7),
+            'regular_holiday'=> fake()->dayOfWeek(),
+            'post_code'=> fake()->postcode(),
+            'address'=> fake()->address(),
+            'phone_number'=> fake()->phoneNumber()
         ];
     }
 }

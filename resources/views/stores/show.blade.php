@@ -50,13 +50,7 @@
                      </div>
                  </div>
              </form>
-                 <form id="favorites-store-form" action="{{ route('stores.favorite', $store->id) }}" method="POST" class="d-none">
-                     @csrf
-                 </form>
-             @endauth
-         </div>
-         @auth
-         <div class="offset-1 col-11">
+             <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">予約</h3>
              <div class="w-100">
@@ -64,34 +58,41 @@
                      <form method="POST" action="{{ route('reservations.store') }}">
                          @csrf
                          <h4>予約日</h4>
-                         <text name="reservation_day" class="form-control m-2"></text>
+                         <input type="date" name="reservation_day" class="form-control m-2">
                          <h4>時間</h4>
                          <select name="reservation_time" class="form-control m-2">
-                                 <option value="10:00"></option>
-                                 <option value="11:00"></option>
-                                 <option value="12:00"></option>
-                                 <option value="13:00"></option>
-                                 <option value="14:00"></option>
-                                 <option value="15:00"></option>
+                                 <option>選択してください</option>
+                                 <option value="10:00">10:00</option>
+                                 <option value="11:00">11:00</option>
+                                 <option value="12:00">12:00</option>
+                                 <option value="13:00">13:00</option>
+                                 <option value="14:00">14:00</option>
+                                 <option value="15:00">15:00</option>
                              </select>
                          <h4>人数</h4>
                          <select name="people" class="form-control m-2">
-                                 <option value="1人"></option>
-                                 <option value="2人"></option>
-                                 <option value="3人"></option>
-                                 <option value="4人"></option>
-                                 <option value="5人"></option>
-                                 <option value="6人"></option>
-                                 <option value="7人"></option>
-                                 <option value="8人"></option>
+                                 <option>選択してください</option>
+                                 <option value="1">1人</option>
+                                 <option value="2">2人</option>
+                                 <option value="3">3人</option>
+                                 <option value="4">4人</option>
+                                 <option value="5">5人</option>
+                                 <option value="6">6人</option>
+                                 <option value="7">7人</option>
+                                 <option value="8">8人</option>
                              </select>
                          <input type="hidden" name="store_id" value="{{$store->id}}">
                          <button type="submit" class="btn kadai_002-submit-button ml-2">予約する</button>
                      </form>
                  </div>
              </div>
+         </div>
+                 <form id="favorites-store-form" action="{{ route('stores.favorite', $store->id) }}" method="POST" class="d-none">
+                     @csrf
+                 </form>
              @endauth
          </div>
+ 
          <div class="offset-1 col-11">
              <hr class="w-100">
              <h3 class="float-left">カスタマーレビュー</h3>
