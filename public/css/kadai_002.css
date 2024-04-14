@@ -291,4 +291,10 @@
 .kadai_002-star-rating[data-rate="0"]::after {
   width: 0%;
 }
+ 
+.samuraimart-delete-submit-button {
+  border-radius: 2px;
+  color: #ffffff;
+  background-color: #d94b0e;
+}
 
