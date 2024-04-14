@@ -13,6 +13,7 @@ class StripeController extends Controller
 {
 public function subscription(Request $request){
     $user=Auth::user();
+    $user->subscription('default')->cancelNow();
         return view('subscription',  [
             'intent' => $user->createSetupIntent()
         ]);
@@ -29,7 +30,7 @@ public function subscription(Request $request){
         $paymentMethod=$request->input('stripePaymentMethod');
 
         // プランはconfigに設定したbasic_plan_idとする
-        $plan=('price_1P4i39HTnh3jrMhWo1SMOu0i');
+        $plan=('price_1P5TPxHTnh3jrMhWtnF2vJpp');
         
         // 上記のプランと支払方法で、サブスクを新規作成する
         $user->newSubscription('default', $plan)

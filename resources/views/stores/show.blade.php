@@ -25,8 +25,21 @@
                  <p class="d-flex align-items-end">
                      ￥{{$store->price}}(税込)
                  </p>
+                 <p class="d-flex align-items-end">
+                     営業時間 {{$store->business_hours}}
+                 </p>
+                 <p class="d-flex align-items-end">
+                     定休日 {{$store->regular_holiday}}
+                 </p>
+                 <p class="d-flex align-items-end">
+                     住所 <br>
+                     〒{{$store->post_code}} <br>
+                     {{$store->address}}
+                 </p>
+                 <p class="d-flex align-items-end">
+                     電話番号 {{$store->phone_number}}
+                 </p>
                  <hr>
-                 <!-- 定休日、営業時間追記する -->
              </div>
              @auth
              <form method="POST" class="m-3 align-items-end">

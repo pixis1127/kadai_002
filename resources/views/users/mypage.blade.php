@@ -50,9 +50,53 @@
                  </div>
              </div>
          </div>
+                  <hr>
+
+         <div class="container">
+             <div class="d-flex justify-content-between">
+                 <div class="row">
+                     <div class="col-2 d-flex align-items-center">
+                         <i class="fa-solid fa-credit-card fa-3x"></i>
+                     </div>
+                     <div class="col-9 d-flex align-items-center ms-2 mt-3">
+                         <div class="d-flex flex-column">
+                             <label for="user-name">有料会員登録</label>
+                             <p>クレジットカードを登録します</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="d-flex align-items-center">
+                     <a href="{{ route('subscription') }}">
+                         <i class="fas fa-chevron-right fa-2x"></i>
+                     </a>
+                 </div>
+             </div>
+         </div>
  
          <hr>
- 
+
+         <div class="container">
+             <div class="d-flex justify-content-between">
+                 <div class="row">
+                     <div class="col-2 d-flex align-items-center">
+                         <i class="fa-solid fa-credit-card fa-3x"></i>
+                     </div>
+                     <div class="col-9 d-flex align-items-center ms-2 mt-3">
+                         <div class="d-flex flex-column">
+                             <label for="user-name">有料会員解約</label>
+                             <p>有料会員を解約します</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="d-flex align-items-center">
+                     <a href="{{ route('cancel_subscription') }}">
+                         <i class="fas fa-chevron-right fa-2x"></i>
+                     </a>
+                 </div>
+             </div>
+         </div>
+
+         <hr>
  
          <div class="container">
              <div class="d-flex justify-content-between">
@@ -80,6 +124,7 @@
          </div>
  
          <hr>
+ 
      </div>
  </div>
  @endsection

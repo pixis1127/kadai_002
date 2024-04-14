@@ -2,6 +2,14 @@
  
  @section('content')
  <div class="container">
+ <div class="row justify-content-center">
+         <div class="col-md-5">
+             <span>
+                 <a href="{{ route('mypage') }}">マイページ</a> > パスワードの変更
+             </span>
+ 
+             <h1 class="mt-3 mb-3">パスワードの変更</h1>
+             <hr>
      <form method="post" action="{{route('mypage.update_password')}}">
          @csrf
          <input type="hidden" name="_method" value="PUT">

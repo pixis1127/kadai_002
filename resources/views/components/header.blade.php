@@ -21,14 +21,10 @@
          <!-- Authentication Links -->
          @guest
          <li class="nav-item mr-5">
-           <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+           <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
          </li>
          <li class="nav-item mr-5">
-           <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-         </li>
-         <hr>
-         <li class="nav-item mr-5">
-           <a class="nav-link" href="{{ route('login') }}"><i class="far fa-heart"></i></a>
+           <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
          </li>
          
          @else
@@ -48,7 +44,7 @@
         </li>
          <li class="nav-item mr-5">
            <a class="nav-link" href="{{ route('mypage.favorite') }}">
-             <i class="far fa-heart"></i>
+             <i class="far fa-heart"></i><label>お気に入り</label>
            </a>
          </li>
          @endguest
