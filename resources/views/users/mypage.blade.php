@@ -89,7 +89,7 @@
                      </div>
                  </div>
                  <div class="d-flex align-items-center">
-                     <a href="{{ route('cancel_subscription') }}">
+                     <a href="{{ route('stripe.cancel', $user)}}">
                          <i class="fas fa-chevron-right fa-2x"></i>
                      </a>
                  </div>

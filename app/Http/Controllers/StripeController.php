@@ -13,7 +13,6 @@ class StripeController extends Controller
 {
 public function subscription(Request $request){
     $user=Auth::user();
-    $user->subscription('default')->cancelNow();
         return view('subscription',  [
             'intent' => $user->createSetupIntent()
         ]);
@@ -39,5 +38,8 @@ public function subscription(Request $request){
         // 処理後に'ルート設定'にページ移行
         return redirect('/');
     }
-
+    public function cancel_subscription(User $user, Request $request){
+        $user->subscription('default')->cancelNow();
+        return back();
+     }
 }

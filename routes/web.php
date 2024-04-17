@@ -48,7 +48,6 @@ Route::controller(UserController::class)->group(function () {
 Route::get('subscription', [StripeController::class, 'subscription'])->name('subscription');
 Route::post('subscription', [StripeController::class, 'afterpay'])->name('stripe.afterpay');
 
-Route::get('cancel_subscription', [StripeController::class, 'subscription'])->name('cancel_subscription');
-Route::post('cancel_subscription', [StripeController::class, 'cancel_subscription'])->name('stripe.cancel_subscription');
+Route::post('cancel_subscription/{user}', [StripeController::class, 'cancel_subscription'])->name('stripe.cancel');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
