@@ -38,8 +38,30 @@ public function subscription(Request $request){
         // 処理後に'ルート設定'にページ移行
         return redirect('/');
     }
+
+    public function edit_subscription(Request $request){
+        $user=Auth::user();
+        return view('/edit_subscription');
+    }
+   
+    public function stripe_update(Request $request) {
+        $paymentMethod = $request->input('stripePaymentMethod'); //支払情報
+        Auth::user()->updateDefaultPaymentMethod($paymentMethod);
+        return back()->with(["お支払い方法を変更しました。"]);
+    }
+
+
+    public function stripe_cancel(Request $request){
+        $user=Auth::user();
+        return view('/cancel_subscription');
+    }
+
     public function cancel_subscription(User $user, Request $request){
+       
+        $user=Auth::user();
+
         $user->subscription('default')->cancelNow();
+
         return back();
      }
 }

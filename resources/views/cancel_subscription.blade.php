@@ -33,6 +33,8 @@
   </table>
 <hr>
 <div class="form-group d-flex justify-content-center">
+<form method="POST" action="{{route('stripe.cancel', $user) }}">
+  @csrf
              <button type="submit" class="btn btn-danger w-25">
                  解約
              </button>

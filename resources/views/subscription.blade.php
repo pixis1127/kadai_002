@@ -39,7 +39,7 @@
     <input type="test" class="form-control col-sm-5" id="card-holder-name" required>
 
     <label for="exampleInputPassword1">カード番号</label>
-    <div class="form-group MyCardElement col-sm-5" id="card-element"></div>
+    <div class="form-group MyCardElement col-sm-12" id="card-element"></div>
 
     <div id="card-errors" role="alert" style='color:red'></div>
 
