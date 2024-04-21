@@ -36,12 +36,13 @@ public function subscription(Request $request){
         ->create($paymentMethod);
 
         // 処理後に'ルート設定'にページ移行
-        return redirect('/');
+        return redirect()->route('mypage');
     }
 
     public function edit_subscription(Request $request){
         $user=Auth::user();
-        return view('/edit_subscription');
+        $intent=$user->createSetupIntent();
+        return view('/edit_subscription', compact('intent', 'user'));
     }
    
     public function stripe_update(Request $request) {
@@ -53,7 +54,7 @@ public function subscription(Request $request){
 
     public function stripe_cancel(Request $request){
         $user=Auth::user();
-        return view('/cancel_subscription');
+        return view('/cancel_subscription', compact('user'));
     }
 
     public function cancel_subscription(User $user, Request $request){
@@ -62,6 +63,6 @@ public function subscription(Request $request){
 
         $user->subscription('default')->cancelNow();
 
-        return back();
+        return redirect('/subscription');
      }
 }

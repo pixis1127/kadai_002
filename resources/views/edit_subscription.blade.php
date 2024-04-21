@@ -10,6 +10,8 @@
              </span>
 
              <h1 class="mt-3 mb-3">クレジットカード変更</h1>
+             <p>{{$user->defaultPaymentMethod()->billing_details->name}}</p>
+             <p>**** **** ****{{$user->pm_last_four}}</p>
              <form method="POST" action="{{ route('stripe.update') }}" id="payment-form">
                  @csrf
                  <label for="exampleInputEmail1">クレジットカード名義</label>

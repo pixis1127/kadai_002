@@ -26,11 +26,11 @@ Route::get('/', function () {
 
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 
-Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::post('reviews', [ReviewController::class, 'store'])->middleware(['auth', 'basic'])->middleware(['auth', 'basic'])->name('reviews.store');
 
-Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->name('stores.favorite');
+Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->middleware(['auth', 'basic'])->name('stores.favorite');
 
-Route::post('reservations', [ReservationController::class, 'store'])->name('reservations.store');
+Route::post('reservations', [ReservationController::class, 'store'])->middleware(['auth', 'basic'])->name('reservations.store');
 
 Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);
@@ -41,17 +41,19 @@ Route::controller(UserController::class)->group(function () {
     Route::put('users/mypage', 'update')->name('mypage.update');
     Route::get('users/mypage/password/edit', 'edit_password')->name('mypage.edit_password');
     Route::put('users/mypage/password', 'update_password')->name('mypage.update_password'); 
-    Route::get('users/mypage/favorite', 'favorite')->name('mypage.favorite');
+    Route::get('users/mypage/favorite', 'favorite')->middleware(['auth', 'basic'])->name('mypage.favorite');
     Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
 });
 
 Route::get('subscription', [StripeController::class, 'subscription'])->name('subscription');
 Route::post('subscription', [StripeController::class, 'afterpay'])->name('stripe.afterpay');
 
-Route::get('edit_subscription/{user}', [StripeController::class, 'edit_subscription'])->name('edit_subscription');
-Route::post('update_subscription', [StripeController::class, 'edit_subscription,'])->name('stripe.update');
+Route::get('edit_subscription/{user}', [StripeController::class, 'edit_subscription'])->middleware(['auth', 'basic'])->name('edit_subscription');
+Route::post('update_subscription', [StripeController::class, 'edit_subscription,'])->middleware(['auth', 'basic'])->name('stripe.update');
 
-Route::get('cancel_subscription/{user}', [StripeController::class, 'cancel_subscription'])->name('cancel_subscription');
-Route::post('cancel_subscription/{user}', [StripeController::class, 'cancel_subscription'])->name('stripe.cancel');
+Route::get('cancel_subscription/{user}', [StripeController::class, 'stripe_cancel'])->middleware(['auth', 'basic'])->name('cancel_subscription');
+Route::post('cancel_subscription/{user}', [StripeController::class, 'cancel_subscription'])->middleware(['auth', 'basic'])->name('stripe.cancel');
+
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

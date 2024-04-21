@@ -51,7 +51,7 @@
              </div>
          </div>
                   <hr>
-
+@if(!$user->subscribed('default'))
          <div class="container">
              <div class="d-flex justify-content-between">
                  <div class="row">
@@ -74,7 +74,7 @@
          </div>
  
          <hr>
-
+@else
 <div class="container">
     <div class="d-flex justify-content-between">
         <div class="row">
@@ -120,7 +120,7 @@
          </div>
 
          <hr>
- 
+ @endif
          <div class="container">
              <div class="d-flex justify-content-between">
                  <div class="row">

@@ -81,6 +81,11 @@
                                  <option value="13:00">13:00</option>
                                  <option value="14:00">14:00</option>
                                  <option value="15:00">15:00</option>
+                                 <option value="15:00">16:00</option>
+                                 <option value="15:00">17:00</option>
+                                 <option value="15:00">18:00</option>
+                                 <option value="15:00">19:00</option>
+                                 <option value="15:00">20:00</option>
                              </select>
                          <h4>人数</h4>
                          <select name="people" class="form-control m-2">
@@ -93,6 +98,8 @@
                                  <option value="6">6人</option>
                                  <option value="7">7人</option>
                                  <option value="8">8人</option>
+                                 <option value="8">9人</option>
+                                 <option value="8">10人</option>
                              </select>
                          <input type="hidden" name="store_id" value="{{$store->id}}">
                          <button type="submit" class="btn kadai_002-submit-button ml-2">予約する</button>
