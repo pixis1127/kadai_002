@@ -47,6 +47,11 @@
              <i class="far fa-heart"></i><label>お気に入り</label>
            </a>
          </li>
+         <li class="nav-item mr-5">
+           <a class="nav-link" href="{{ route('mypage.reservation') }}">
+            <label>予約一覧</label>
+           </a>
+         </li>
          @endguest
          <li class="nav-item mr-5">
           <a class="nav-link" href="{{ route('company') }}">

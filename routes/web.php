@@ -43,6 +43,8 @@ Route::controller(UserController::class)->group(function () {
     Route::put('users/mypage/password', 'update_password')->name('mypage.update_password'); 
     Route::get('users/mypage/favorite', 'favorite')->middleware(['auth', 'basic'])->name('mypage.favorite');
     Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
+    Route::get('users/mypage/reservation', 'reservation')->middleware(['auth', 'basic'])->name('mypage.reservation');
+    
 });
 
 Route::get('subscription', [StripeController::class, 'subscription'])->name('subscription');
@@ -56,4 +58,3 @@ Route::post('cancel_subscription/{user}', [StripeController::class, 'cancel_subs
 
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

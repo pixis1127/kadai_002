@@ -106,7 +106,6 @@ class StoreController extends Controller
         //
     }
 
-    // 有料会員ならお気に入り機能が使えるようにしたい
     public function favorite(Store $store)
     {
         Auth::user()->togglefavorite($store);
