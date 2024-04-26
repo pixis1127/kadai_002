@@ -35,7 +35,7 @@ Route::delete('/stores/{review}', [ReviewController::class, 'destroy'])->middlew
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->middleware(['auth', 'basic'])->name('stores.favorite');
 
 Route::post('reservations', [ReservationController::class, 'store'])->middleware(['auth', 'basic'])->name('reservations.store');
-Route::delete('reservation/{id}', [ReservationController::class, 'destroy'])->middleware(['auth', 'basic'])->name('reservations.destroy');
+Route::delete('reservations/{reservation}', [ReservationController::class, 'destroy'])->middleware(['auth', 'basic'])->name('reservations.destroy');
 
 Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);

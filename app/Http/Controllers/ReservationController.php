@@ -95,10 +95,8 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        Auth::user();
-
         $reservation ->delete();
     
-            return back()->with('flash_message', '予約を削除しました。');
+            return redirect('/stores')->with('flash_message', '予約を削除しました。');
     }
 }

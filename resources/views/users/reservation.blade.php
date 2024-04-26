@@ -21,7 +21,7 @@
                      </div>
                  </div>
                  <div class="col-md-2 d-flex align-items-center justify-content-end">
-                 <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
+                 <form action="{{ route('reservations.destroy', $reservation) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
                          @csrf
                          @method('DELETE')
                          <button type="submit" class="btn kadai_002-submit-button ml-2">キャンセル</button>
