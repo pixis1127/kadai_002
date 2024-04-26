@@ -31,6 +31,7 @@ Route::post('reviews', [ReviewController::class, 'store'])->middleware(['auth', 
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->middleware(['auth', 'basic'])->name('stores.favorite');
 
 Route::post('reservations', [ReservationController::class, 'store'])->middleware(['auth', 'basic'])->name('reservations.store');
+Route::delete('reservation/{id}', [ReservationController::class, 'destroy'])->middleware(['auth', 'basic'])->name('reservations.destroy');
 
 Route::resource('stores', StoreController::class);
 Auth::routes(['verify' => true]);
@@ -44,6 +45,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/mypage/favorite', 'favorite')->middleware(['auth', 'basic'])->name('mypage.favorite');
     Route::delete('users/mypage/delete', 'destroy')->name('mypage.destroy');
     Route::get('users/mypage/reservation', 'reservation')->middleware(['auth', 'basic'])->name('mypage.reservation');
+    
     
 });
 

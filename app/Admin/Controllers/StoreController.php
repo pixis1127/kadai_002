@@ -40,6 +40,11 @@ class StoreController extends AdminController
         $grid->column('address', __('Address'));
         $grid->column('phone_number', __('Phone number'));
 
+        $grid->filter(function($filter) {
+            $filter->like('name', '店舗名');
+
+        });
+
         return $grid;
     }
 
