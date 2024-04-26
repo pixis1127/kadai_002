@@ -19,23 +19,18 @@ public function subscription(Request $request){
     }
 
     public function afterpay(Request $request){
-        // ログインユーザーを$userとする
+        
         $user=Auth::user();
-
-        // またStripe顧客でなければ、新規顧客にする
+        
         $stripeCustomer = $user->createOrGetStripeCustomer();
 
-        // フォーム送信の情報から$paymentMethodを作成する
         $paymentMethod=$request->input('stripePaymentMethod');
 
-        // プランはconfigに設定したbasic_plan_idとする
         $plan=('price_1P5TPxHTnh3jrMhWtnF2vJpp');
         
-        // 上記のプランと支払方法で、サブスクを新規作成する
         $user->newSubscription('default', $plan)
         ->create($paymentMethod);
 
-        // 処理後に'ルート設定'にページ移行
         return redirect()->route('mypage');
     }
 
@@ -46,7 +41,7 @@ public function subscription(Request $request){
     }
    
     public function stripe_update(Request $request) {
-        $paymentMethod = $request->input('stripePaymentMethod'); //支払情報
+        $paymentMethod = $request->input('stripePaymentMethod'); 
         Auth::user()->updateDefaultPaymentMethod($paymentMethod);
         return back()->with(["お支払い方法を変更しました。"]);
     }
