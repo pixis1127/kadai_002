@@ -1,10 +1,6 @@
 @extends('layouts.app')
  
  @section('content')
-
- @if (session('flash_message'))
-    <p>{{ session('flash_message') }}</p>
- @endif
  
  <div class="d-flex justify-content-center">
      <div class="row w-75">

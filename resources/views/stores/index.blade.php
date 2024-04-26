@@ -7,10 +7,13 @@
          @endcomponent
      </div>
      <div class="col-9">
+     @if (session('flash_message'))
+            <p class="alert alert-success" role="alert">{{ session('flash_message') }}</p>
+     @endif
      <div class="container">
              @if ($category !== null)
                  <a href="{{ route('stores.index') }}">トップ</a> > <a href="#"></a> > {{ $category->name }}
-                 <h1>{{ $category->name }}の商品一覧{{$total_count}}件</h1>
+                 <h1>{{ $category->name }}の店舗一覧{{$total_count}}件</h1>
                  @elseif ($keyword !== null)
                  <a href="{{ route('stores.index') }}">トップ</a> > 商品一覧
                  <h1>"{{ $keyword }}"の検索結果{{$total_count}}件</h1>
