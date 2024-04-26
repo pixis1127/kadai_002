@@ -24,8 +24,8 @@
                  <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
                          @csrf
                          @method('DELETE')
-                         <button type="submit">キャンセル</button>
-                     </form>
+                         <button type="submit" class="btn kadai_002-submit-button ml-2">キャンセル</button>
+                     </form> 
                  </a>
              </div>
              @endforeach

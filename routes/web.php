@@ -27,6 +27,10 @@ Route::get('/', function () {
 Route::get('/company', [CompanyController::class, 'index'])->name('company');
 
 Route::post('reviews', [ReviewController::class, 'store'])->middleware(['auth', 'basic'])->middleware(['auth', 'basic'])->name('reviews.store');
+Route::get('/stores/{review}/edit_review', [ReviewController::class, 'edit'])->middleware(['auth', 'verified'])->name('reviews.edit');
+Route::patch('/stores/{review}', [ReviewController::class, 'update'])->middleware(['auth', 'verified'])->name('reviews.update');
+Route::delete('/stores/{review}', [ReviewController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
+
 
 Route::get('stores/{store}/favorite', [StoreController::class, 'favorite'])->middleware(['auth', 'basic'])->name('stores.favorite');
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
  
  @section('content')
+
+ @if (session('flash_message'))
+    <p>{{ session('flash_message') }}</p>
+ @endif
  
  <div class="d-flex justify-content-center">
      <div class="row w-75">
@@ -125,6 +129,14 @@
                      <p class="h3">{{$review->content}}</p>
                      <label>{{$review->created_at}} {{$review->user->name}}</label>
                  </div>
+                 @if ($review->user_id === Auth::id())
+                 <a href="{{ route('reviews.edit', $review) }}"><button type="submit" class="btn kadai_002-submit-button ml-2">編集</button></a>
+                 <form action="{{ route('reviews.destroy', $review) }}" method="POST" onsubmit="return confirm('本当に削除してもよろしいですか？');">
+                     @csrf
+                     @method('DELETE')
+                     <button type="submit" class="btn kadai_002-delete-submit-button">削除</button>
+                 </form>
+             @endif
                  @endforeach
              </div><br />
  

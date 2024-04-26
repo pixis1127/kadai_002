@@ -29,4 +29,29 @@ class ReviewController extends Controller
 
         return back();
     }
+    public function edit(Review $review)
+    {
+        if ($review->user_id == Auth::id()) 
+
+        return view('stores.edit_review', compact('review'));
+
+    }
+
+    public function update(Request $request, Review $review)
+    {
+        if ($review->user_id == Auth::id()) 
+
+        $review->content = $request->input('content');
+        $review->score = $request->input('score');
+        $review->save();
+
+        return redirect('/stores')->with('flash_message', 'レビュー内容を編集しました。');
+    }
+
+    public function destroy(Review $review) {
+
+        $review->delete();
+
+        return redirect('/stores')->with('flash_message', 'レビューを削除しました。');
+    }
 }

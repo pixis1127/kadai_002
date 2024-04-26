@@ -91,32 +91,6 @@
    color: #191919;
  }
 
- /* .company-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 700px;
-}
-.company-table th, .company-table td {
-  padding: 1em;
-}
-.company-table th {
-  color: #4d9bc1;
-  font-weight: bold;
-  text-align: left;
-  width: 20%;
-  min-width: 4em;
-  position: relative;
-}
-.company-table th::after {
-  content: '';
-  background-color: #c1c7c6;
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 60%;
-} */
 
 .kadai_002-login-input {
     border-radius: 2px;
@@ -162,6 +136,7 @@
     color: #ffffff;
     background-color: #e28800;
 }
+
 
 .kadai_002-login-text {
     font-family: YuGo;
@@ -292,7 +267,7 @@
   width: 0%;
 }
  
-.samuraimart-delete-submit-button {
+.kadai_002-delete-submit-button {
   border-radius: 2px;
   color: #ffffff;
   background-color: #d94b0e;
